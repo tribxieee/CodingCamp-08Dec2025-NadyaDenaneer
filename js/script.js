@@ -44,10 +44,12 @@ function renderTasks(filter = "All") {
     const tbody = document.querySelector("#task-table-body");
     tbody.innerHTML = "";
 
-    let filteredTasks = tasks.filter(t => {
-        if (filter === "All") return true;
-        return t.status === filter.toLowerCase();
-    });
+    let filteredTasks = tasks
+        .map((item, originalIndex) => ({ ...item, originalIndex })) // simpan index asli
+        .filter(t => {
+            if (filter === "All") return true;
+            return t.status === filter.toLowerCase();
+        });
 
     filteredTasks.forEach((item, index) => {
         const row = document.createElement("tr");
@@ -62,15 +64,38 @@ function renderTasks(filter = "All") {
                 </span>
             </td>
             <td class="actions">
-                <button class="btn-icon edit" onclick="editTask(${index})"><i class="bi bi-pencil"></i></button>
-                <button class="btn-icon complete" onclick="toggleStatus(${index})"><i class="bi bi-check-lg"></i></button>
-                <button class="btn-icon delete" onclick="deleteTask(${index})"><i class="bi bi-trash"></i></button>
+                <button class="btn-icon edit" onclick="editTask(${item.originalIndex})"><i class="bi bi-pencil"></i></button>
+                <button class="btn-icon complete" onclick="toggleStatus(${item.originalIndex})"><i class="bi bi-check-lg"></i></button>
+                <button class="btn-icon delete" onclick="deleteTask(${item.originalIndex})"><i class="bi bi-trash"></i></button>
             </td>
         `;
 
         tbody.appendChild(row);
     });
 }
+
+
+// CLEAR COMPLETED
+document.querySelector(".clear-btn").addEventListener("click", () => {
+    if (tasks.length === 0) {
+        Swal.fire("No task to clear!", "", "info");
+        return;
+    }
+
+    Swal.fire({
+        title: "Clear all completed tasks?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            tasks = tasks.filter(t => t.status !== "completed");
+            renderTasks();
+            Swal.fire("Completed tasks cleared!", "", "success");
+        }
+    });
+});
+
 
 // DELETE TASK
 function deleteTask(index) {
