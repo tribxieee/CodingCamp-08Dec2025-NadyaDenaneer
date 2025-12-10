@@ -9,13 +9,21 @@ header.navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 20px 0;
+    padding-top: 50px;
+    margin-bottom: -20px;
 }
-
 .navbar-brand {
     font-size: 30px;
     font-weight: 600;
 }
+
+/* main */
+.input-group .form-control,
+.input-group-text {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
 
 /* buttton */
 .btn-add {
@@ -27,7 +35,6 @@ header.navbar {
     border: none;
     transition: 0.2s;
 }
-
 .btn-add:hover {
     background-color: #4c59a3;
     transform: translateY(-2px);
@@ -36,4 +43,34 @@ header.navbar {
 /* form spaccing */
 #task .container {
     padding-top: 10px;
+}
+
+/* filter */
+.filter-btn {
+    padding: 8px 18px;
+    border: none;
+    background-color: #e9efff;
+    color: #4c59a3;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: 0.2s;
+}
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: #5C6BC0;
+    color: white;
+}
+.clear-btn {
+    padding: 8px 18px;
+    border: none;
+    background-color: #f8d7da;
+    color: #9b3e43;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: 0.2s;
+}
+.clear-btn:hover {
+    background-color: #e6bfc3;
 }
