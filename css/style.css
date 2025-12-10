@@ -4,42 +4,36 @@ body {
 }
 
 /* navbar */
-.navbar {
+header.navbar {
     background-color: #F7F9FC;
     position: sticky;
     top: 0;
-    z-index: 9999;
+    z-index: 1000;
+    padding: 20px 0;
 }
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 30px 20px;
-}
-.navbar .navbar-brand {
-    font-size: 35px;
+
+.navbar-brand {
+    font-size: 30px;
     font-weight: 600;
 }
-/* .navbar .nav-link {
-    color: #5C6BC0;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-} */
+
+/* buttton */
 .btn-add {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    display: inline-block;
-    color: #fff;
     background-color: #5C6BC0;
-    border-radius: 8px;
-    padding: 10px 20px;
+    color: white;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 10px;
     border: none;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.3s;
+    transition: 0.2s;
 }
-/* .btn-add:hover {
-    background-color: #aa1633;
-    transform: translateY(-4px);
-} */
+
+.btn-add:hover {
+    background-color: #4c59a3;
+    transform: translateY(-2px);
+}
+
+/* form spaccing */
+#task .container {
+    padding-top: 10px;
+}
