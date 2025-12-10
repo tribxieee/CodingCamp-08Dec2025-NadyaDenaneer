@@ -74,3 +74,52 @@ header.navbar {
 .clear-btn:hover {
     background-color: #e6bfc3;
 }
+
+
+/* task-list */
+.task-table {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 15px;
+}
+.task-table thead {
+    background: #fafafa;
+    font-weight: 600;
+}
+.task-table th {
+    color: #555;
+    border-bottom-width: 2px;
+}
+.task-table td {
+    padding: 14px 12px;
+}
+.status-pill {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.status-pill.pending {
+    background-color: #fff3a6;
+    color: #7d6a00;
+}
+.status-pill.completed {
+    background-color: #d5f5cd;
+    color: #2e6b27;
+}
+.actions {
+    display: flex;
+    gap: 10px;
+}
+.btn-icon {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    opacity: .7;
+    transition: .2s;
+}
+.btn-icon:hover {
+    opacity: 1;
+}
